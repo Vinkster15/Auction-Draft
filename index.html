@@ -15,25 +15,25 @@
   body{
     margin:0; background:var(--bg); color:var(--text);
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    font-size:13px;
+    font-size:11px;
   }
   header{
     position:sticky; top:0; z-index:30; background:var(--panel);
-    border-bottom:1px solid var(--border); padding:10px 16px;
-    display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;
+    border-bottom:1px solid var(--border); padding:8px 12px;
+    display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap;
   }
-  header h1{font-size:16px; margin:0; font-weight:700; letter-spacing:.2px;}
-  header h1 span{color:var(--sub); font-weight:400; font-size:12px; margin-left:8px;}
-  .stats{display:flex; gap:18px; font-size:12px; color:var(--sub); flex-wrap:wrap;}
-  .stats b{color:var(--text); font-size:13px;}
-  .btns{display:flex; gap:8px;}
+  header h1{font-size:14px; margin:0; font-weight:700; letter-spacing:.2px;}
+  header h1 span{color:var(--sub); font-weight:400; font-size:11px; margin-left:6px;}
+  .stats{display:flex; gap:14px; font-size:10.5px; color:var(--sub); flex-wrap:wrap;}
+  .stats b{color:var(--text); font-size:11.5px;}
+  .btns{display:flex; gap:6px;}
   button{
     background:var(--panel2); color:var(--text); border:1px solid var(--border);
-    border-radius:6px; padding:7px 12px; font-size:12px; cursor:pointer;
+    border-radius:6px; padding:5px 10px; font-size:11px; cursor:pointer;
   }
   button:hover{border-color:var(--accent);}
   button.danger:hover{border-color:var(--red); color:var(--red);}
-  .board-wrap{overflow:auto; padding:14px; max-width:100vw;}
+  .board-wrap{overflow:auto; padding:10px; max-width:100vw;}
   table{border-collapse:separate; border-spacing:0; width:max-content;}
   th,td{border:1px solid var(--border);}
   thead th{
@@ -42,45 +42,45 @@
   }
   .pickcol{
     position:sticky; left:0; z-index:15; background:var(--panel2);
-    min-width:56px; max-width:56px; text-align:center; color:var(--sub);
-    font-weight:600; font-size:11px;
+    min-width:36px; max-width:36px; text-align:center; color:var(--sub);
+    font-weight:600; font-size:9.5px;
   }
   thead .pickcol{z-index:25;}
-  .team-head{padding:8px 8px 10px; min-width:158px;}
+  .team-head{padding:5px 5px 6px; min-width:118px;}
   .team-head input.team-name{
     width:100%; background:transparent; border:none; color:var(--text);
-    font-weight:700; font-size:13px; padding:2px 2px; border-bottom:1px dashed transparent;
+    font-weight:700; font-size:11.5px; padding:1px 2px; border-bottom:1px dashed transparent;
   }
   .team-head input.team-name:focus{outline:none; border-bottom:1px dashed var(--accent);}
-  .budget-line{display:flex; align-items:baseline; justify-content:space-between; margin-top:4px;}
-  .budget-amt{font-size:17px; font-weight:800;}
-  .budget-sub{font-size:10px; color:var(--sub); margin-top:2px; display:flex; justify-content:space-between;}
-  .bar{height:4px; border-radius:3px; background:#0b1119; margin-top:6px; overflow:hidden;}
+  .budget-line{display:flex; align-items:baseline; justify-content:space-between; margin-top:2px;}
+  .budget-amt{font-size:14px; font-weight:800;}
+  .budget-sub{font-size:8.5px; color:var(--sub); margin-top:1px; display:flex; justify-content:space-between;}
+  .bar{height:3px; border-radius:3px; background:#0b1119; margin-top:4px; overflow:hidden;}
   .bar-fill{height:100%; background:var(--green); transition:width .2s;}
-  .cell{padding:4px; min-width:158px; vertical-align:top; background:var(--panel2);}
+  .cell{padding:2px; min-width:118px; vertical-align:top; background:var(--panel2);}
   .cell.filled{background:#1a2530;}
   .cell.dup{background:#3a1c1c;}
-  .cell-inner{display:flex; gap:4px; align-items:center;}
+  .cell-inner{display:flex; gap:3px; align-items:center;}
   .player-wrap{position:relative; flex:1;}
   input.player-input{
     width:100%; background:#0f1720; border:1px solid var(--border); color:var(--text);
-    padding:6px 7px; border-radius:5px; font-size:12.5px;
+    padding:4px 5px; border-radius:4px; font-size:10.5px;
   }
   input.player-input:focus{outline:none; border-color:var(--accent);}
   .pos-badge{
-    display:inline-block; font-size:9px; font-weight:800; color:#0b1119;
-    border-radius:3px; padding:1px 4px; margin-right:4px; vertical-align:middle;
+    display:inline-block; font-size:8px; font-weight:800; color:#0b1119;
+    border-radius:3px; padding:1px 3px; margin-right:3px; vertical-align:middle;
   }
   .pos-QB{background:var(--qb);} .pos-RB{background:var(--rb);} .pos-WR{background:var(--wr);}
   .pos-TE{background:var(--te);} .pos-PK{background:var(--pk);} .pos-DEF{background:var(--def);}
   input.price-input{
-    width:52px; background:#0f1720; border:1px solid var(--border); color:var(--text);
-    padding:6px 5px; border-radius:5px; font-size:12.5px; text-align:right;
+    width:40px; background:#0f1720; border:1px solid var(--border); color:var(--text);
+    padding:4px 3px; border-radius:4px; font-size:10.5px; text-align:right;
   }
   input.price-input:focus{outline:none; border-color:var(--accent);}
   .clear-x{
-    background:none; border:none; color:var(--sub); font-size:14px; cursor:pointer;
-    padding:0 2px; line-height:1;
+    background:none; border:none; color:var(--sub); font-size:12px; cursor:pointer;
+    padding:0 1px; line-height:1;
   }
   .clear-x:hover{color:var(--red);}
   #suggest-panel{
@@ -88,21 +88,28 @@
     border-radius:8px; box-shadow:0 10px 30px rgba(0,0,0,.5); max-height:280px; overflow-y:auto;
     display:none; min-width:230px;
   }
-  .sg-item{padding:7px 10px; cursor:pointer; display:flex; align-items:center; gap:6px; font-size:12.5px;}
+  .sg-item{padding:6px 9px; cursor:pointer; display:flex; align-items:center; gap:6px; font-size:11px;}
   .sg-item:hover, .sg-item.active{background:#1c2833;}
   .sg-item.taken{opacity:.4; cursor:not-allowed;}
   .sg-name{flex:1;}
-  .sg-meta{color:var(--sub); font-size:10.5px;}
-  .sg-empty{padding:8px 10px; color:var(--sub); font-size:12px;}
-  footer{padding:10px 16px 30px; color:var(--sub); font-size:11px;}
+  .sg-meta{color:var(--sub); font-size:9.5px;}
+  .sg-empty{padding:8px 9px; color:var(--sub); font-size:11px;}
+  footer{padding:8px 12px 24px; color:var(--sub); font-size:10px;}
+  #toast{
+    position:fixed; top:14px; left:50%; transform:translateX(-50%) translateY(-10px);
+    background:#2a1414; border:1px solid var(--red); color:#ffd9d6; padding:8px 14px;
+    border-radius:7px; font-size:12px; z-index:200; opacity:0; pointer-events:none;
+    transition:opacity .18s, transform .18s; box-shadow:0 8px 24px rgba(0,0,0,.5);
+  }
+  #toast.show{opacity:1; transform:translateX(-50%) translateY(0);}
 </style>
 </head>
 <body>
 
 <header>
-  <h1>Auction Draft Board <span>13 Teams &middot; $300 Budget &middot; Live</span></h1>
+  <h1>Auction Draft Board <span>12 Teams &middot; $300 Budget &middot; Live</span></h1>
   <div class="stats">
-    <div>Drafted: <b id="stat-drafted">0</b> / 182</div>
+    <div>Drafted: <b id="stat-drafted">0</b> / 180</div>
     <div>League $ Spent: <b id="stat-spent">$0</b></div>
     <div>Avg Price: <b id="stat-avg">$0</b></div>
     <div>Pool Remaining: <b id="stat-pool">228</b></div>
@@ -129,12 +136,13 @@
 </footer>
 
 <div id="suggest-panel"></div>
+<div id="toast"></div>
 
 <script>
 (function(){
   const PLAYERS = [{"name": "Jahmyr Gibbs", "pos": "RB", "team": "DET"}, {"name": "Bijan Robinson", "pos": "RB", "team": "ATL"}, {"name": "Puka Nacua", "pos": "WR", "team": "LAR"}, {"name": "Ja'Marr Chase", "pos": "WR", "team": "CIN"}, {"name": "Christian McCaffrey", "pos": "RB", "team": "SF"}, {"name": "Jaxon Smith-Njigba", "pos": "WR", "team": "SEA"}, {"name": "Jonathan Taylor", "pos": "RB", "team": "IND"}, {"name": "Amon-Ra St. Brown", "pos": "WR", "team": "DET"}, {"name": "De'Von Achane", "pos": "RB", "team": "MIA"}, {"name": "CeeDee Lamb", "pos": "WR", "team": "DAL"}, {"name": "Ashton Jeanty", "pos": "RB", "team": "LV"}, {"name": "Justin Jefferson", "pos": "WR", "team": "MIN"}, {"name": "Drake London", "pos": "WR", "team": "ATL"}, {"name": "James Cook III", "pos": "RB", "team": "BUF"}, {"name": "A.J. Brown", "pos": "WR", "team": "NE"}, {"name": "Derrick Henry", "pos": "RB", "team": "BAL"}, {"name": "Chase Brown", "pos": "RB", "team": "CIN"}, {"name": "Omarion Hampton", "pos": "RB", "team": "LAC"}, {"name": "Saquon Barkley", "pos": "RB", "team": "PHI"}, {"name": "George Pickens", "pos": "WR", "team": "DAL"}, {"name": "Kenneth Walker III", "pos": "RB", "team": "KC"}, {"name": "Jeremiyah Love", "pos": "RB", "team": "ARI"}, {"name": "Chris Olave", "pos": "WR", "team": "NO"}, {"name": "Nico Collins", "pos": "WR", "team": "HOU"}, {"name": "Rashee Rice", "pos": "WR", "team": "KC"}, {"name": "Josh Jacobs", "pos": "RB", "team": "GB"}, {"name": "Josh Allen", "pos": "QB", "team": "BUF"}, {"name": "Zay Flowers", "pos": "WR", "team": "BAL"}, {"name": "Garrett Wilson", "pos": "WR", "team": "NYJ"}, {"name": "DeVonta Smith", "pos": "WR", "team": "PHI"}, {"name": "Breece Hall", "pos": "RB", "team": "NYJ"}, {"name": "Tee Higgins", "pos": "WR", "team": "CIN"}, {"name": "Trey McBride", "pos": "TE", "team": "ARI"}, {"name": "Tetairoa McMillan", "pos": "WR", "team": "CAR"}, {"name": "Kyren Williams", "pos": "RB", "team": "LAR"}, {"name": "Javonte Williams", "pos": "RB", "team": "DAL"}, {"name": "Brock Bowers", "pos": "TE", "team": "LV"}, {"name": "Ladd McConkey", "pos": "WR", "team": "LAC"}, {"name": "Terry McLaurin", "pos": "WR", "team": "WAS"}, {"name": "Cam Skattebo", "pos": "RB", "team": "NYG"}, {"name": "Travis Etienne Jr.", "pos": "RB", "team": "NO"}, {"name": "Jaylen Waddle", "pos": "WR", "team": "DEN"}, {"name": "Davante Adams", "pos": "WR", "team": "LAR"}, {"name": "Emeka Egbuka", "pos": "WR", "team": "TB"}, {"name": "Colston Loveland", "pos": "TE", "team": "CHI"}, {"name": "Bucky Irving", "pos": "RB", "team": "TB"}, {"name": "D'Andre Swift", "pos": "RB", "team": "CHI"}, {"name": "Quinshon Judkins", "pos": "RB", "team": "CLE"}, {"name": "Malik Nabers", "pos": "WR", "team": "NYG"}, {"name": "Joe Burrow", "pos": "QB", "team": "CIN"}, {"name": "Luther Burden III", "pos": "WR", "team": "CHI"}, {"name": "Jameson Williams", "pos": "WR", "team": "DET"}, {"name": "Mike Evans", "pos": "WR", "team": "SF"}, {"name": "Tyler Warren", "pos": "TE", "team": "IND"}, {"name": "Lamar Jackson", "pos": "QB", "team": "BAL"}, {"name": "David Montgomery", "pos": "RB", "team": "HOU"}, {"name": "Rome Odunze", "pos": "WR", "team": "CHI"}, {"name": "DK Metcalf", "pos": "WR", "team": "PIT"}, {"name": "TreVeyon Henderson", "pos": "RB", "team": "NE"}, {"name": "Christian Watson", "pos": "WR", "team": "GB"}, {"name": "Dak Prescott", "pos": "QB", "team": "DAL"}, {"name": "Carnell Tate", "pos": "WR", "team": "TEN"}, {"name": "Bhayshul Tuten", "pos": "RB", "team": "JAX"}, {"name": "Drake Maye", "pos": "QB", "team": "NE"}, {"name": "Jaylen Warren", "pos": "RB", "team": "PIT"}, {"name": "Alec Pierce", "pos": "WR", "team": "IND"}, {"name": "Marvin Harrison Jr.", "pos": "WR", "team": "ARI"}, {"name": "Harold Fannin Jr.", "pos": "TE", "team": "CLE"}, {"name": "Tony Pollard", "pos": "RB", "team": "TEN"}, {"name": "DJ Moore", "pos": "WR", "team": "BUF"}, {"name": "Michael Pittman Jr.", "pos": "WR", "team": "PIT"}, {"name": "Jadarian Price", "pos": "RB", "team": "SEA"}, {"name": "Sam LaPorta", "pos": "TE", "team": "DET"}, {"name": "Rhamondre Stevenson", "pos": "RB", "team": "NE"}, {"name": "Courtland Sutton", "pos": "WR", "team": "DEN"}, {"name": "Tucker Kraft", "pos": "TE", "team": "GB"}, {"name": "Parker Washington", "pos": "WR", "team": "JAX"}, {"name": "Rico Dowdle", "pos": "RB", "team": "PIT"}, {"name": "Jordyn Tyson", "pos": "WR", "team": "NO"}, {"name": "Chris Godwin Jr.", "pos": "WR", "team": "TB"}, {"name": "Chuba Hubbard", "pos": "RB", "team": "CAR"}, {"name": "Justin Herbert", "pos": "QB", "team": "LAC"}, {"name": "Brian Thomas Jr.", "pos": "WR", "team": "JAX"}, {"name": "Michael Wilson", "pos": "WR", "team": "ARI"}, {"name": "Jayden Daniels", "pos": "QB", "team": "WAS"}, {"name": "Kyle Pitts Sr.", "pos": "TE", "team": "ATL"}, {"name": "Trevor Lawrence", "pos": "QB", "team": "JAX"}, {"name": "Jayden Reed", "pos": "WR", "team": "GB"}, {"name": "Josh Downs", "pos": "WR", "team": "IND"}, {"name": "Jalen Hurts", "pos": "QB", "team": "PHI"}, {"name": "Jordan Addison", "pos": "WR", "team": "MIN"}, {"name": "J.K. Dobbins", "pos": "RB", "team": "DEN"}, {"name": "Seattle Defense", "pos": "DEF", "team": "SEA"}, {"name": "Jakobi Meyers", "pos": "WR", "team": "JAX"}, {"name": "Wan'Dale Robinson", "pos": "WR", "team": "TEN"}, {"name": "RJ Harvey", "pos": "RB", "team": "DEN"}, {"name": "Travis Kelce", "pos": "TE", "team": "KC"}, {"name": "Brock Purdy", "pos": "QB", "team": "SF"}, {"name": "Kenny Gainwell", "pos": "RB", "team": "TB"}, {"name": "Aaron Jones Sr.", "pos": "RB", "team": "MIN"}, {"name": "Jared Goff", "pos": "QB", "team": "DET"}, {"name": "Patrick Mahomes", "pos": "QB", "team": "KC"}, {"name": "Makai Lemon", "pos": "WR", "team": "PHI"}, {"name": "Denver Defense", "pos": "DEF", "team": "DEN"}, {"name": "Xavier Worthy", "pos": "WR", "team": "KC"}, {"name": "Quentin Johnston", "pos": "WR", "team": "LAC"}, {"name": "Ricky Pearsall", "pos": "WR", "team": "SF"}, {"name": "Matthew Stafford", "pos": "QB", "team": "LAR"}, {"name": "Kyle Monangai", "pos": "RB", "team": "CHI"}, {"name": "Caleb Williams", "pos": "QB", "team": "CHI"}, {"name": "Romeo Doubs", "pos": "WR", "team": "NE"}, {"name": "Rachaad White", "pos": "RB", "team": "WAS"}, {"name": "LA Rams Defense", "pos": "DEF", "team": "LAR"}, {"name": "George Kittle", "pos": "TE", "team": "SF"}, {"name": "Khalil Shakir", "pos": "WR", "team": "BUF"}, {"name": "Houston Defense", "pos": "DEF", "team": "HOU"}, {"name": "New England Defense", "pos": "DEF", "team": "NE"}, {"name": "Matthew Golden", "pos": "WR", "team": "GB"}, {"name": "Bo Nix", "pos": "QB", "team": "DEN"}, {"name": "Blake Corum", "pos": "RB", "team": "LAR"}, {"name": "Jake Ferguson", "pos": "TE", "team": "DAL"}, {"name": "KC Concepcion", "pos": "WR", "team": "CLE"}, {"name": "Jaxson Dart", "pos": "QB", "team": "NYG"}, {"name": "Jayden Higgins", "pos": "WR", "team": "HOU"}, {"name": "Jordan Mason", "pos": "RB", "team": "MIN"}, {"name": "Jalen Coker", "pos": "WR", "team": "CAR"}, {"name": "MarShawn Lloyd", "pos": "RB", "team": "GB"}, {"name": "Tyjae Spears", "pos": "RB", "team": "TEN"}, {"name": "Jacory Croskey-Merritt", "pos": "RB", "team": "WAS"}, {"name": "Dallas Goedert", "pos": "TE", "team": "PHI"}, {"name": "Jonathon Brooks", "pos": "RB", "team": "CAR"}, {"name": "Brandon Aubrey", "pos": "PK", "team": "DAL"}, {"name": "Jacksonville Defense", "pos": "DEF", "team": "JAX"}, {"name": "Rashid Shaheed", "pos": "WR", "team": "SEA"}, {"name": "Philadelphia Defense", "pos": "DEF", "team": "PHI"}, {"name": "Baker Mayfield", "pos": "QB", "team": "TB"}, {"name": "Mark Andrews", "pos": "TE", "team": "BAL"}, {"name": "Jordan Love", "pos": "QB", "team": "GB"}, {"name": "Omar Cooper Jr.", "pos": "WR", "team": "NYJ"}, {"name": "Jauan Jennings", "pos": "WR", "team": "MIN"}, {"name": "Tre Tucker", "pos": "WR", "team": "LV"}, {"name": "Denzel Boston", "pos": "WR", "team": "CLE"}, {"name": "Dalton Kincaid", "pos": "TE", "team": "BUF"}, {"name": "Justice Hill", "pos": "RB", "team": "BAL"}, {"name": "Jaydon Blue", "pos": "RB", "team": "DAL"}, {"name": "Woody Marks", "pos": "RB", "team": "HOU"}, {"name": "Isaiah Likely", "pos": "TE", "team": "NYG"}, {"name": "Cameron Dicker", "pos": "PK", "team": "LAC"}, {"name": "Cincinnati Defense", "pos": "DEF", "team": "CIN"}, {"name": "Jalen McMillan", "pos": "WR", "team": "TB"}, {"name": "Detroit Defense", "pos": "DEF", "team": "DET"}, {"name": "Minnesota Defense", "pos": "DEF", "team": "MIN"}, {"name": "Kyler Murray", "pos": "QB", "team": "MIN"}, {"name": "Jason Myers", "pos": "PK", "team": "SEA"}, {"name": "Jalen Nailor", "pos": "WR", "team": "LV"}, {"name": "Dallas Defense", "pos": "DEF", "team": "DAL"}, {"name": "Ka'imi Fairbairn", "pos": "PK", "team": "HOU"}, {"name": "Brandon Aiyuk", "pos": "WR", "team": "SF"}, {"name": "Jerry Jeudy", "pos": "WR", "team": "CLE"}, {"name": "Tyler Shough", "pos": "QB", "team": "NO"}, {"name": "Hunter Henry", "pos": "TE", "team": "NE"}, {"name": "C.J. Stroud", "pos": "QB", "team": "HOU"}, {"name": "Mike Washington Jr.", "pos": "RB", "team": "LV"}, {"name": "Isiah Pacheco", "pos": "RB", "team": "DET"}, {"name": "Antonio Williams", "pos": "WR", "team": "WAS"}, {"name": "Pittsburgh Defense", "pos": "DEF", "team": "PIT"}, {"name": "Brenton Strange", "pos": "TE", "team": "JAX"}, {"name": "Sam Darnold", "pos": "QB", "team": "SEA"}, {"name": "Jake Bates", "pos": "PK", "team": "DET"}, {"name": "Trey Smack", "pos": "PK", "team": "GB"}, {"name": "Buffalo Defense", "pos": "DEF", "team": "BUF"}, {"name": "Harrison Mevis", "pos": "PK", "team": "LAR"}, {"name": "Chris Rodriguez Jr.", "pos": "RB", "team": "JAX"}, {"name": "Chris Boswell", "pos": "PK", "team": "PIT"}, {"name": "Dylan Sampson", "pos": "RB", "team": "CLE"}, {"name": "Malik Washington", "pos": "WR", "team": "MIA"}, {"name": "Cam Little", "pos": "PK", "team": "JAX"}, {"name": "Tyler Loop", "pos": "PK", "team": "BAL"}, {"name": "Kenyon Sadiq", "pos": "TE", "team": "NYJ"}, {"name": "Calvin Ridley", "pos": "WR", "team": "TEN"}, {"name": "Eddy Piñeiro", "pos": "PK", "team": "SF"}, {"name": "LA Chargers Defense", "pos": "DEF", "team": "LAC"}, {"name": "Alvin Kamara", "pos": "RB", "team": "NO"}, {"name": "Zach Charbonnet", "pos": "RB", "team": "SEA"}, {"name": "Tyrone Tracy Jr.", "pos": "RB", "team": "NYG"}, {"name": "Baltimore Defense", "pos": "DEF", "team": "BAL"}, {"name": "T.J. Hockenson", "pos": "TE", "team": "MIN"}, {"name": "Tank Dell", "pos": "WR", "team": "HOU"}, {"name": "Tyler Bass", "pos": "PK", "team": "BUF"}, {"name": "Oronde Gadsden", "pos": "TE", "team": "LAC"}, {"name": "Brian Robinson Jr.", "pos": "RB", "team": "ATL"}, {"name": "Green Bay Defense", "pos": "DEF", "team": "GB"}, {"name": "Germie Bernard", "pos": "WR", "team": "PIT"}, {"name": "Ryan Flournoy", "pos": "WR", "team": "DAL"}, {"name": "Rashod Bateman", "pos": "WR", "team": "BAL"}, {"name": "Daniel Jones", "pos": "QB", "team": "IND"}, {"name": "Harrison Butker", "pos": "PK", "team": "KC"}, {"name": "Adonai Mitchell", "pos": "WR", "team": "NYJ"}, {"name": "NY Jets Defense", "pos": "DEF", "team": "NYJ"}, {"name": "Chase McLaughlin", "pos": "PK", "team": "TB"}, {"name": "Bryce Young", "pos": "QB", "team": "CAR"}, {"name": "Chris Bell", "pos": "WR", "team": "MIA"}, {"name": "Travis Hunter", "pos": "WR", "team": "JAX"}, {"name": "Juwan Johnson", "pos": "TE", "team": "NO"}, {"name": "Chicago Defense", "pos": "DEF", "team": "CHI"}, {"name": "Cooper Kupp", "pos": "WR", "team": "SEA"}, {"name": "Tyler Allgeier", "pos": "RB", "team": "ARI"}, {"name": "Chig Okonkwo", "pos": "TE", "team": "WAS"}, {"name": "Cairo Santos", "pos": "PK", "team": "CHI"}, {"name": "Greg Dulcich", "pos": "TE", "team": "MIA"}, {"name": "Malik Willis", "pos": "QB", "team": "MIA"}, {"name": "Will Reichard", "pos": "PK", "team": "MIN"}, {"name": "Isaac TeSlaa", "pos": "WR", "team": "DET"}, {"name": "Cam Ward", "pos": "QB", "team": "TEN"}, {"name": "Evan McPherson", "pos": "PK", "team": "CIN"}, {"name": "San Francisco Defense", "pos": "DEF", "team": "SF"}, {"name": "Tank Bigsby", "pos": "RB", "team": "PHI"}, {"name": "Wil Lutz", "pos": "PK", "team": "DEN"}, {"name": "Jonah Coleman", "pos": "RB", "team": "DEN"}, {"name": "Zachariah Branch", "pos": "WR", "team": "ATL"}, {"name": "Atlanta Defense", "pos": "DEF", "team": "ATL"}, {"name": "Braelon Allen", "pos": "RB", "team": "NYJ"}, {"name": "Troy Franklin", "pos": "WR", "team": "DEN"}, {"name": "Washington Defense", "pos": "DEF", "team": "WAS"}, {"name": "NY Giants Defense", "pos": "DEF", "team": "NYG"}, {"name": "Keaton Mitchell", "pos": "RB", "team": "LAC"}, {"name": "Fernando Mendoza", "pos": "QB", "team": "LV"}, {"name": "Kansas City Defense", "pos": "DEF", "team": "KC"}];
-  const NUM_TEAMS = 13;
-  const NUM_PICKS = 14;
+  const NUM_TEAMS = 12;
+  const NUM_PICKS = 15;
   const BUDGET = 300;
   const STORAGE_KEY = 'auctionDraftBoard_v1';
 
@@ -187,7 +195,7 @@
     th.innerHTML = `
       <input class="team-name" data-c="${c}" maxlength="24" spellcheck="false">
       <div class="budget-line"><span class="budget-amt">$300</span></div>
-      <div class="budget-sub"><span class="filled-count">0/14 filled</span><span class="max-bid"></span></div>
+      <div class="budget-sub"><span class="filled-count">0/15 filled</span><span class="max-bid"></span></div>
       <div class="bar"><div class="bar-fill" style="width:100%"></div></div>
     `;
     headRow.appendChild(th);
@@ -240,6 +248,7 @@
       const clearBtn = td.querySelector('.clear-x');
 
       pInput.value = pick.player;
+      pInput.dataset.lastGood = pick.player || '';
       priceInput.value = pick.price;
 
       pInput.addEventListener('input', ()=>{
@@ -253,7 +262,10 @@
       pInput.addEventListener('focus', ()=>renderSuggestions(r,c,pInput));
       pInput.addEventListener('keydown', (e)=>handleKeydown(e,r,c,pInput));
       pInput.addEventListener('blur', ()=>{
-        setTimeout(()=>{ if(!suggestPanel.matches(':hover')) hideSuggestions(); }, 120);
+        setTimeout(()=>{
+          if(!suggestPanel.matches(':hover')) hideSuggestions();
+          validateCell(r,c,pInput);
+        }, 120);
       });
 
       priceInput.addEventListener('input', ()=>{
@@ -265,7 +277,7 @@
 
       clearBtn.addEventListener('click', ()=>{
         state.picks[r][c] = {player:'',pos:'',team:'',price:''};
-        pInput.value=''; priceInput.value='';
+        pInput.value=''; pInput.dataset.lastGood=''; priceInput.value='';
         save();
         refreshAll();
       });
@@ -299,11 +311,18 @@
     const query = input.value.trim().toLowerCase();
     const takenMap = draftedElsewhereMap();
 
+    // Players already drafted by any other cell are removed from the pool entirely.
+    const available = PLAYERS.filter(p=>{
+      const takenAt = takenMap.get(p.name.toLowerCase());
+      const isTakenElsewhere = takenAt && !(takenAt.r===r && takenAt.c===c);
+      return !isTakenElsewhere;
+    });
+
     let matches;
     if(query === ''){
-      matches = PLAYERS.slice(0,40);
+      matches = available.slice(0,40);
     } else {
-      matches = PLAYERS.filter(p => p.name.toLowerCase().includes(query));
+      matches = available.filter(p => p.name.toLowerCase().includes(query));
       matches.sort((a,b)=>{
         const ai = a.name.toLowerCase().indexOf(query);
         const bi = b.name.toLowerCase().indexOf(query);
@@ -321,17 +340,16 @@
     suggestPanel.style.width = Math.max(rect.width, 230) + 'px';
 
     if(matches.length === 0){
-      suggestPanel.innerHTML = `<div class="sg-empty">No matches — this will be saved as free text.</div>`;
+      const existsButTaken = query !== '' && PLAYERS.some(p => p.name.toLowerCase().includes(query));
+      suggestPanel.innerHTML = existsButTaken
+        ? `<div class="sg-empty">Already drafted — no available players match.</div>`
+        : `<div class="sg-empty">No matches — this will be saved as free text.</div>`;
     } else {
       suggestPanel.innerHTML = matches.map((p,i)=>{
-        const key = p.name.toLowerCase();
-        const takenAt = takenMap.get(key);
-        const isTakenElsewhere = takenAt && !(takenAt.r===r && takenAt.c===c);
-        const takenLabel = isTakenElsewhere ? ` &middot; drafted by ${escapeHtml(state.teams[takenAt.c].name)}` : '';
-        return `<div class="sg-item${isTakenElsewhere?' taken':''}" data-idx="${i}">
+        return `<div class="sg-item" data-idx="${i}">
           <span class="pos-badge pos-${p.pos}">${p.pos}</span>
           <span class="sg-name">${escapeHtml(p.name)}</span>
-          <span class="sg-meta">${p.team}${takenLabel}</span>
+          <span class="sg-meta">${p.team}</span>
         </div>`;
       }).join('');
     }
@@ -341,10 +359,57 @@
       el.addEventListener('mousedown', (e)=>{
         e.preventDefault();
         const idx = Number(el.getAttribute('data-idx'));
-        if(el.classList.contains('taken')) return;
         selectMatch(idx);
       });
     });
+  }
+
+  function validateCell(r,c,input){
+    const val = input.value.trim();
+    if(val === ''){
+      input.dataset.lastGood = '';
+      return;
+    }
+    const lower = val.toLowerCase();
+    let dupAt = null;
+    outer:
+    for(let rr=0; rr<NUM_PICKS; rr++){
+      for(let cc=0; cc<NUM_TEAMS; cc++){
+        if(rr===r && cc===c) continue;
+        const nm = (state.picks[rr][cc].player||'').trim().toLowerCase();
+        if(nm && nm === lower){ dupAt = {r:rr,c:cc}; break outer; }
+      }
+    }
+    if(dupAt){
+      showToast(`${val} is already drafted by ${state.teams[dupAt.c].name} (Pick ${dupAt.r+1}) — pick someone else.`);
+      const prev = input.dataset.lastGood || '';
+      input.value = prev;
+      const prevMatch = PLAYERS.find(p => p.name.toLowerCase() === prev.trim().toLowerCase());
+      state.picks[r][c] = prev
+        ? {player:prev, pos: prevMatch?prevMatch.pos:'', team: prevMatch?prevMatch.team:'', price: state.picks[r][c].price}
+        : {player:'', pos:'', team:'', price: state.picks[r][c].price};
+      save();
+      refreshAll();
+      return;
+    }
+    input.dataset.lastGood = val;
+    if(!state.picks[r][c].pos){
+      const exact = PLAYERS.find(p => p.name.toLowerCase() === lower);
+      if(exact){
+        state.picks[r][c].pos = exact.pos;
+        state.picks[r][c].team = exact.team;
+        save();
+        refreshAll();
+      }
+    }
+  }
+
+  function showToast(msg){
+    const el = document.getElementById('toast');
+    el.textContent = msg;
+    el.classList.add('show');
+    clearTimeout(showToast._t);
+    showToast._t = setTimeout(()=>{ el.classList.remove('show'); }, 3200);
   }
 
   function hideSuggestions(){
@@ -360,6 +425,7 @@
     if(!p) return;
     const {r,c,input} = activeCell;
     input.value = p.name;
+    input.dataset.lastGood = p.name;
     state.picks[r][c].player = p.name;
     state.picks[r][c].pos = p.pos;
     state.picks[r][c].team = p.team;
@@ -445,7 +511,7 @@
       budgetAmtEls[c].style.color = remaining < 0 ? 'var(--red)' : (remaining < 30 ? 'var(--red)' : (remaining < 100 ? 'var(--amber)' : 'var(--green)'));
 
       const subEl = budgetSubEls[c];
-      subEl.querySelector('.filled-count').textContent = filled + '/14 filled';
+      subEl.querySelector('.filled-count').textContent = filled + '/' + NUM_PICKS + ' filled';
       subEl.querySelector('.max-bid').textContent = openSlots > 0 ? ('Max bid: $' + Math.max(maxBid,0)) : '';
 
       const pct = Math.max(0, Math.min(100, (remaining/BUDGET)*100));
