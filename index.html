@@ -9,7 +9,7 @@
     --bg:#0f1720; --panel:#17212b; --panel2:#1c2833; --border:#2a3846;
     --text:#e8eef4; --sub:#8fa3b3; --accent:#3fa9f5;
     --green:#33c17a; --amber:#e0a72e; --red:#e0554f;
-    --qb:#e0554f; --rb:#33c17a; --wr:#3fa9f5; --te:#c78ee0; --pk:#e0a72e; --def:#8fa3b3;
+    --qb:#e0459e; --rb:#33c17a; --wr:#e8c547; --te:#9b6bdb; --pk:#c9752e; --def:#3fa9f5;
   }
   *{box-sizing:border-box;}
   body{
@@ -50,16 +50,25 @@
   .team-head input.team-name{
     width:100%; background:transparent; border:none; color:var(--text);
     font-weight:700; font-size:11.5px; padding:1px 2px; border-bottom:1px dashed transparent;
+    cursor:text; border-radius:3px;
   }
-  .team-head input.team-name:focus{outline:none; border-bottom:1px dashed var(--accent);}
+  .team-head input.team-name:hover{background:rgba(255,255,255,.06); border-bottom:1px dashed var(--sub);}
+  .team-head input.team-name:focus{outline:none; background:rgba(63,169,245,.08); border-bottom:1px dashed var(--accent);}
+  .team-head input.team-name::placeholder{color:var(--sub); font-weight:400;}
   .budget-line{display:flex; align-items:baseline; justify-content:space-between; margin-top:2px;}
   .budget-amt{font-size:14px; font-weight:800;}
   .budget-sub{font-size:8.5px; color:var(--sub); margin-top:1px; display:flex; justify-content:space-between;}
   .bar{height:3px; border-radius:3px; background:#0b1119; margin-top:4px; overflow:hidden;}
   .bar-fill{height:100%; background:var(--green); transition:width .2s;}
-  .cell{padding:2px; min-width:118px; vertical-align:top; background:var(--panel2);}
+  .cell{padding:2px; min-width:118px; vertical-align:top; background:var(--panel2); transition:background .15s;}
   .cell.filled{background:#1a2530;}
-  .cell.dup{background:#3a1c1c;}
+  .cell.cell-QB{background:rgba(224,69,158,.38); box-shadow:inset 0 0 0 1px var(--qb);}
+  .cell.cell-RB{background:rgba(51,193,122,.38); box-shadow:inset 0 0 0 1px var(--rb);}
+  .cell.cell-WR{background:rgba(232,197,71,.34); box-shadow:inset 0 0 0 1px var(--wr);}
+  .cell.cell-TE{background:rgba(155,107,219,.36); box-shadow:inset 0 0 0 1px var(--te);}
+  .cell.cell-PK{background:rgba(201,117,46,.36); box-shadow:inset 0 0 0 1px var(--pk);}
+  .cell.cell-DEF{background:rgba(63,169,245,.34); box-shadow:inset 0 0 0 1px var(--def);}
+  .cell.dup{background:#3a1c1c !important; box-shadow:inset 0 0 0 1px var(--red) !important;}
   .cell-inner{display:flex; gap:3px; align-items:center;}
   .player-wrap{position:relative; flex:1;}
   input.player-input{
@@ -145,6 +154,7 @@
   const NUM_PICKS = 15;
   const BUDGET = 300;
   const STORAGE_KEY = 'auctionDraftBoard_v1';
+  const POS_LIST = ['QB','RB','WR','TE','PK','DEF'];
 
   function defaultState(){
     return {
@@ -193,7 +203,7 @@
     const th = document.createElement('th');
     th.className = 'team-head';
     th.innerHTML = `
-      <input class="team-name" data-c="${c}" maxlength="24" spellcheck="false">
+      <input class="team-name" data-c="${c}" maxlength="24" spellcheck="false" placeholder="Team name..." title="Click to rename this team — editable anytime">
       <div class="budget-line"><span class="budget-amt">$300</span></div>
       <div class="budget-sub"><span class="filled-count">0/15 filled</span><span class="max-bid"></span></div>
       <div class="bar"><div class="bar-fill" style="width:100%"></div></div>
@@ -499,6 +509,11 @@
         cellEls[r][c].classList.toggle('filled', hasPlayer);
         cellEls[r][c].classList.toggle('dup', !!isDup);
         cellEls[r][c].title = isDup ? 'This player appears more than once on the board' : '';
+
+        POS_LIST.forEach(pos => cellEls[r][c].classList.remove('cell-' + pos));
+        if(hasPlayer && pick.pos && POS_LIST.includes(pick.pos)){
+          cellEls[r][c].classList.add('cell-' + pick.pos);
+        }
 
         // position badge prefix in the input's sibling (visual only via title)
         playerInputs[r][c].style.borderColor = isDup ? 'var(--red)' : '';
