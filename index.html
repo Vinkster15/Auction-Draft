@@ -96,8 +96,12 @@
     position:fixed; z-index:100; background:#101820; border:1px solid var(--accent);
     border-radius:8px; box-shadow:0 10px 30px rgba(0,0,0,.5); max-height:280px; overflow-y:auto;
     display:none; min-width:230px;
+    -webkit-overflow-scrolling:touch; overscroll-behavior:contain;
   }
-  .sg-item{padding:6px 9px; cursor:pointer; display:flex; align-items:center; gap:6px; font-size:11px;}
+  .sg-item{
+    padding:6px 9px; cursor:pointer; display:flex; align-items:center; gap:6px; font-size:11px;
+    touch-action:manipulation; -webkit-tap-highlight-color:rgba(63,169,245,.25);
+  }
   .sg-item:hover, .sg-item.active{background:#1c2833;}
   .sg-item.taken{opacity:.4; cursor:not-allowed;}
   .sg-name{flex:1;}
@@ -111,6 +115,18 @@
     transition:opacity .18s, transform .18s; box-shadow:0 8px 24px rgba(0,0,0,.5);
   }
   #toast.show{opacity:1; transform:translateX(-50%) translateY(0);}
+
+  /* Larger touch targets on phones/tablets so taps land accurately */
+  @media (max-width: 900px), (pointer: coarse){
+    .sg-item{padding:11px 12px; font-size:13px; gap:8px;}
+    .sg-meta{font-size:11px;}
+    .sg-empty{padding:12px;}
+    .pos-badge{font-size:9.5px; padding:2px 5px;}
+    input.player-input{padding:8px 8px; font-size:12.5px;}
+    input.price-input{padding:8px 5px; font-size:12.5px; width:46px;}
+    .clear-x{font-size:16px; padding:4px 6px; touch-action:manipulation;}
+    .team-head input.team-name{padding:6px 4px; font-size:12.5px;}
+  }
 </style>
 </head>
 <body>
@@ -273,9 +289,9 @@
       pInput.addEventListener('keydown', (e)=>handleKeydown(e,r,c,pInput));
       pInput.addEventListener('blur', ()=>{
         setTimeout(()=>{
-          if(!suggestPanel.matches(':hover')) hideSuggestions();
+          hideSuggestions();
           validateCell(r,c,pInput);
-        }, 120);
+        }, 220);
       });
 
       priceInput.addEventListener('input', ()=>{
@@ -345,9 +361,29 @@
     activeIndex = -1;
 
     const rect = input.getBoundingClientRect();
-    suggestPanel.style.left = rect.left + 'px';
-    suggestPanel.style.top = (rect.bottom + 4) + 'px';
-    suggestPanel.style.width = Math.max(rect.width, 230) + 'px';
+    const vw = window.innerWidth;
+    const vh = (window.visualViewport ? window.visualViewport.height : window.innerHeight);
+    const panelWidth = Math.max(rect.width, 230);
+    let left = rect.left;
+    if(left + panelWidth > vw - 8) left = Math.max(8, vw - panelWidth - 8);
+    if(left < 8) left = 8;
+
+    const spaceBelow = vh - rect.bottom;
+    const spaceAbove = rect.top;
+    const maxPanelH = 280;
+    let top, maxHeight;
+    if(spaceBelow >= 160 || spaceBelow >= spaceAbove){
+      top = rect.bottom + 4;
+      maxHeight = Math.min(maxPanelH, Math.max(120, vh - top - 8));
+    } else {
+      maxHeight = Math.min(maxPanelH, Math.max(120, spaceAbove - 8));
+      top = Math.max(8, rect.top - 4 - maxHeight);
+    }
+
+    suggestPanel.style.left = left + 'px';
+    suggestPanel.style.top = top + 'px';
+    suggestPanel.style.width = panelWidth + 'px';
+    suggestPanel.style.maxHeight = maxHeight + 'px';
 
     if(matches.length === 0){
       const existsButTaken = query !== '' && PLAYERS.some(p => p.name.toLowerCase().includes(query));
@@ -366,7 +402,10 @@
     suggestPanel.style.display = 'block';
 
     suggestPanel.querySelectorAll('.sg-item').forEach(el=>{
-      el.addEventListener('mousedown', (e)=>{
+      // Use 'click' (not 'mousedown') so the browser's own tap-vs-scroll
+      // detection applies — this is what makes tapping reliable on touch
+      // screens even with a bit of natural finger movement.
+      el.addEventListener('click', (e)=>{
         e.preventDefault();
         const idx = Number(el.getAttribute('data-idx'));
         selectMatch(idx);
@@ -475,8 +514,25 @@
     });
   }
 
-  document.addEventListener('scroll', ()=>{ if(activeCell) hideSuggestions(); }, true);
-  window.addEventListener('resize', ()=>{ if(activeCell) hideSuggestions(); });
+  // Ignore scroll events that originate *inside* the suggestion panel itself —
+  // otherwise trying to scroll through the player list on a touch screen
+  // would immediately close the dropdown before a selection could be made.
+  document.addEventListener('scroll', (e)=>{
+    if(activeCell && !(suggestPanel.contains(e.target))) hideSuggestions();
+  }, true);
+
+  // On mobile, opening the on-screen keyboard fires a resize (or
+  // visualViewport resize) event. Reposition the panel instead of hiding it,
+  // so it doesn't vanish right as the keyboard appears.
+  function repositionOrHide(){
+    if(!activeCell) return;
+    renderSuggestions(activeCell.r, activeCell.c, activeCell.input);
+  }
+  window.addEventListener('resize', repositionOrHide);
+  if(window.visualViewport){
+    window.visualViewport.addEventListener('resize', repositionOrHide);
+    window.visualViewport.addEventListener('scroll', repositionOrHide);
+  }
 
   function escapeHtml(s){
     return s.replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
